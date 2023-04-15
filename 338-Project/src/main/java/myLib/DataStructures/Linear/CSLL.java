@@ -183,37 +183,43 @@ public class CSLL extends SLL {
         myList.insertTail(new DNode(20));
         myList.insertTail(new DNode(4));
         myList.insertTail(new DNode(30));
-        
+        System.out.println("Initial State of the list:");
+        System.out.println();
         myList.print();
         // Insert some nodes at specific positions
         myList.insert(new DNode(35), 2);
         myList.insert(new DNode(40), 5);
         myList.insert(new DNode(45), 8);
+        System.out.println("List after inserting Nodes into the CSLL: ");
+        System.out.println();
         myList.print();
         // Delete some nodes
+        
         myList.deleteHead();
         myList.deleteTail();
+        System.out.println("List after deleting head and tail:");
+        System.out.println();
+        myList.print();
+        
+        System.out.println("List after deleting a searched node from the list: ");
+        System.out.println();
         myList.delete(myList.search(35));
         
-        
         myList.print();
         myList.sort();
 
         // Print the sorted list
-        System.out.print("Sorted List: ");
+        System.out.println("After sorting the list: ");
+        System.out.println();
         myList.print();
-
-        // Print the list
-        System.out.print("List: ");
-        myList.print();
-
-        // Sort the list
-        myList.sort();
 
         // Print the sorted list
-        System.out.print("Sorted List: ");
+        System.out.println("Sorted List: ");
+        System.out.println();
         myList.print();
         myList.insert(new DNode(6),4);
+        System.out.println("After inserting a Node to the list:");
+        System.out.println();
         myList.print();
         // Test the circular property by traversing the list multiple times
         System.out.println("Traversing the list multiple times:");

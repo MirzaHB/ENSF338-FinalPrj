@@ -213,8 +213,9 @@ public class DLL extends SLL{
             System.out.println("List Length: " + size);
             if(isSorted()) {System.out.print("Sorted Status: List IS Sorted");}
             else {System.out.println("Sorted Status: List is NOT sorted");}
-            System.out.println();
+           
         }
+        System.out.println();
     }
     
     public static void main(String[] args) {
@@ -234,42 +235,50 @@ public class DLL extends SLL{
         list.insert(new DNode(9), 2);
         
         // Print the contents of the list
-        System.out.print("Original list: ");
+        System.out.print("Initial State of the list: ");
+        System.out.println();
         list.print();
         
         // Delete the head node
+       
         list.deleteHead();
         
         // Delete the tail node
         list.deleteTail();
-        
+        System.out.println("List after deleting head and tail:");
+        list.print();
         // Delete a specific node
         DNode tmp = new DNode(111);
         list.insertHead(tmp);
-        System.out.print("Changed list: ");
+        System.out.print("List after inserting a node to the head: ");
+        System.out.println();
         list.print();
         DNode nodeToDelete = list.search(tmp);
         list.delete(nodeToDelete);
-        
-        // Print the contents of the modified list
-        System.out.print("Modified list: ");
+        System.out.println("List after deleting a searched node: ");
         list.print();
+        // Print the contents of the modified list
+        
         
         // Sort the list
         list.sort();
         
         // Print the sorted list
         System.out.print("Sorted list: ");
+        System.out.println();
         list.print();
         
         list.sortedInsert(new DNode(1));
-        System.out.print("After Sorted Insert: ");
+        System.out.println();
+        System.out.println("After Sorted-Insert: ");
+        System.out.println();
         list.print();
         // Clear the list
         list.clear();
         
         // Print the contents of the empty list
-        System.out.print("Cleared list: ");
+        System.out.println();
+        System.out.print("After clearing the list: ");
         list.print();
     }
 

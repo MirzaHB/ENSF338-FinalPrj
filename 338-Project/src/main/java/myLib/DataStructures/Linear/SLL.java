@@ -236,7 +236,7 @@ public class SLL {
         myList.insert(new DNode(3), 3);
 
         // Print the list
-        System.out.println("Original list:");
+        System.out.println("Initial List State:");
         myList.print();
 
         // Search for a node
@@ -258,7 +258,7 @@ public class SLL {
         myList.sort();
         System.out.println("List after sorting:");
         myList.print();
-
+        System.out.println();
         // Delete the head and tail of the list
         myList.deleteHead();
         myList.deleteTail();
@@ -267,14 +267,12 @@ public class SLL {
 
         // Add a node at position 1
         myList.insert(new DNode(6), 1);
+        System.out.println();
         System.out.println("List after adding node 6 at position 1:");
         myList.print();
         
-        myList.sort();
-        myList.insertTail(new DNode(76));
-        myList.print();
-        
-        myList.insert(new DNode(8),6);
+        myList.clear();
+        System.out.println("State of list after clearing the list:");
         myList.print();
     }
 

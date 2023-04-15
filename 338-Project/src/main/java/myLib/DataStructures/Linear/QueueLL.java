@@ -40,10 +40,43 @@ public class QueueLL extends SLL {
 
     @Override
     public void delete(DNode node){
-        if (node == null) {
+        if (head == null) {
             return;
         }
-        super.delete(node);
+        if (head == node) {
+            if (size == 1) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.getNext();
+            }
+            size--;
+            return;
+        }
+        if (tail == node) {
+            if (size == 1) {
+                head = null;
+                tail = null;
+            } else {
+                DNode prev = head;
+                while (prev.getNext() != tail) {
+                    prev = prev.getNext();
+                }
+                prev.setNext(null);
+                tail = prev;
+            }
+            size--;
+            return;
+        }
+        DNode current = head;
+        for (int i = 0; i < size - 1 && current.getNext() != node; i++, current = current.getNext()) {}
+        if (current.getNext() == node) {
+            DNode next = node.getNext();
+            current.setNext(next);
+            size--;
+        } else {
+            return;
+        }
     }
 
     @Override
@@ -104,8 +137,8 @@ public class QueueLL extends SLL {
         // Enqueue some nodes
         queue.enqueue(new DNode(1));
         queue.enqueue(new DNode(5));
-        queue.enqueue(new DNode(4));
-        queue.enqueue(new DNode(3));
+        queue.enqueue(new DNode(0));
+        queue.enqueue(new DNode(7));
         queue.enqueue(new DNode(2));
         System.out.print("Current List: ");
         queue.print();
@@ -116,17 +149,17 @@ public class QueueLL extends SLL {
         queue.print();
         
 
-        queue.insertHead(new DNode(7));
-        System.out.print("Current List after Inserting 7 in head: ");
+        queue.insertHead(new DNode(9));
+        System.out.print("Current List after Inserting 9 in head: ");
         queue.print();
         
-
-        queue.insert(new DNode(8), 3);
+        DNode tmp = new DNode(8);
+        queue.insert(tmp, 3);
         System.out.print("Current List after Inserting 8 in position 3: ");
         queue.print();
         
 
-        queue.delete(new DNode(8));
+        queue.delete(tmp);
         System.out.print("Current List after deleting 8: ");
         queue.print();
 
@@ -140,7 +173,6 @@ public class QueueLL extends SLL {
         queue.print();
         
         System.out.println("Current List size: " + queue.size);
-    
         // Peek the head of the queue without dequeuing
         System.out.println("Peek: " + queue.peek().getData());
     
@@ -173,7 +205,7 @@ public class QueueLL extends SLL {
         
 
         // Search for a node
-        DNode searchNode = new DNode(5);
+        DNode searchNode = new DNode(6);
         int position = queue.search(searchNode);
         if (position != -1) {
             System.out.println("Found node " + searchNode.getData() + " at position " + position);

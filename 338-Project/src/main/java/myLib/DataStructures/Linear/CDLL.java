@@ -253,44 +253,46 @@ public class CDLL extends DLL{
         myList.insertTail(new DNode(20));
         myList.insertTail(new DNode(4));
         myList.insertTail(new DNode(30));
-        
+        System.out.println("Intial State of the List: ");
         myList.print();
         // Insert some nodes at specific positions
         myList.insert(new DNode(35), 2);
         myList.insert(new DNode(40), 5);
         myList.insert(new DNode(45), 8);
+        System.out.println();
+        System.out.println("List after inserting nodes: ");
         myList.print();
         // Delete some nodes
+        System.out.println();
+        System.out.println("List after deleting the head and tail: ");
         myList.deleteHead();
         myList.deleteTail();
+        myList.print();
         //myList.delete(myList.Search(35));
         // DNode searchResult = myList.Search(4);
         // System.out.println("Search result:"+searchResult.getData());
 
         myList.delete(new DNode(3));
         myList.delete(new DNode(5));
-        
+        System.out.println();
+        System.out.println("List after deleting specific Nodes:");
         
         myList.print();
+        System.out.println();
         myList.sort();
 
         // Print the sorted list
-        System.out.print("Sorted List: ");
-        myList.print();
-
-        // Print the list
-        System.out.print("List: ");
+        System.out.println("After sorting the list: ");
         myList.print();
 
         // Sort the list
         myList.sort();
-
-        // Print the sorted list
-        System.out.print("Sorted List: ");
-        myList.print();
-
-        System.out.println("\nSize of the list: " + myList.size);
         myList.sortedInsert(new DNode(27));
+        System.out.println();
+        System.out.println("After using Sorted-Insert:");
+        myList.print();
+        System.out.println("\nSize of the list: " + myList.size);
+        
         // Test the circular property by traversing the list multiple times
         System.out.println("Traversing the list multiple times:");
         DNode current = myList.head;
